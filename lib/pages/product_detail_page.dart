@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:pertemuan10_2306035/models/product_model.dart';
 
@@ -20,6 +22,13 @@ class ProductDetailPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: .start,
             children: [
+              product.image.isNotEmpty
+              ? Image.memory(
+                base64Decode(product.image),
+                width: double.infinity,
+                height: 400,
+                fit: .cover,
+              ) : const Icon(Icons.image, size: 400,),
               Text(product.name, style: TextStyle(
                 fontSize: 24,
                 fontWeight: .bold
